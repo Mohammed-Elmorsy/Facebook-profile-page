@@ -6,25 +6,6 @@ let studentSchema=mongoose.model("students");
 require("./../Models/postModel");
 let postSchema=mongoose.model("posts");
 let studentRouter=express.Router();
-//let express_session=require("express-session");
-//------------------------------------student role---------------------------------------------
-//MW
-// studentRouter.use((request,response,next)=>{
-//     if(request.session.role=="student")
-//         next();
-//     else
-//     {
-//         response.send("you are not a student");
-//     }
-// });
-
-studentRouter.get("/profile",(request,response)=>{
-    //if(request.session.role == "student")
-        response.redirect('http://localhost:3000/'); 
-/*     else
-        response.send("you are not a student"); */
-});//student profile
-
 
 //get posts
 studentRouter.get("/postList",(request,response)=>{
