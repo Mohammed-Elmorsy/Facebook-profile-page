@@ -1,11 +1,14 @@
 import React from 'react'
+import registerStyle from "./register.css";
+import CoursesDropDown from "./coursesList";
+import { Link } from 'react-router-dom'
 
-class Courses extends React.Component{
+class Register extends React.Component{
 
     render()
     {
         return(
-            <div class="container">
+            <div class="container-fluid" id="register">
             <div class="row">
               <div class="col-lg-10 col-xl-9 mx-auto">
                 <div class="card card-signin flex-row my-5">
@@ -36,12 +39,18 @@ class Courses extends React.Component{
                         <input type="password" id="inputConfirmPassword" class="form-control" placeholder="Password" required />
                         <label for="inputConfirmPassword">Confirm password</label>
                       </div>
+                      <div class="form-label-group">
+                        <CoursesDropDown/>
+                      </div>
+                        
         
                       <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Register</button>
-                      <a class="d-block text-center mt-2 small" href="#">Sign In</a>
+                      <br/>
+                      <div className="text-center">
+                        <Link to="/login" className="mx-auto text-primary ">Or Login</Link>
+                      </div>
                       <hr class="my-4"/>
-                      <button class="btn btn-lg btn-google btn-block text-uppercase" type="submit"><i class="fab fa-google mr-2"></i> Sign up with Google</button>
-                      <button class="btn btn-lg btn-facebook btn-block text-uppercase" type="submit"><i class="fab fa-facebook-f mr-2"></i> Sign up with Facebook</button>
+                      
                     </form>
                   </div>
                 </div>
@@ -52,4 +61,4 @@ class Courses extends React.Component{
     }
 }
 
-export default Courses;
+export default Register;

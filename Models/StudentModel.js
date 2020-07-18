@@ -10,11 +10,7 @@ let studentSchema=new mongoose.Schema({
                 city:String
         } ,
         joinDate : Date ,
-        bio: String ,
-        Department:{
-                type:Number,
-                ref:"departments"
-            }
+        bio: String 
 });
 
 //mapping

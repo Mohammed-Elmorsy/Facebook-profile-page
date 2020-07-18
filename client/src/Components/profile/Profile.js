@@ -1,5 +1,4 @@
 import React from 'react'
-import Header from './Header'
 import CoverPhoto from './CoverPhoto'
 import ProfilePhoto from './ProfilePhoto'
 import NewPost from './NewPost'
@@ -93,7 +92,6 @@ class Profile extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <Header></Header>
                 <CoverPhoto></CoverPhoto>
                 <ProfilePhoto></ProfilePhoto>
                 <div class="container" id="content">
