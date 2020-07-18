@@ -1,7 +1,7 @@
 let express=require("express");
 let path=require("path");
 let mongoose=require("mongoose");
-let studentRouter=require("./Routers/studentRouter")
+let postRouter=require("./Routers/postRouter")
 let cors = require("cors");
 
 
@@ -41,7 +41,7 @@ server.get(["/", "/home"],(request,response)=>{
 });
 
 
-server.use("/students",studentRouter);
+server.use("/posts",postRouter);
 
 server.use((request,response)=>{
     response.send("WELCOME ..... ");

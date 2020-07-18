@@ -3,8 +3,14 @@ let mongoose=require("mongoose");
 //schema 
 let studentSchema=new mongoose.Schema({
         _id: Number,
-        Name: String,
-        Email:String,
+        fullName: String,
+        email:String ,
+        address: {
+                country:String,
+                city:String
+        } ,
+        joinDate : Date ,
+        bio: String ,
         Department:{
                 type:Number,
                 ref:"departments"
