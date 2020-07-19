@@ -1,9 +1,25 @@
 import React from 'react'
 import registerStyle from "./register.css";
 import CoursesDropDown from "./coursesList";
+import axios from 'axios';
 import { Link } from 'react-router-dom'
+import baseURL from '../../baseURL'
 
 class Register extends React.Component{
+
+  createStudent = () => {
+
+    let student = {
+      fullName:this.refs.fullName.value,
+      email:this.refs.email.value,
+      password:this.refs.password.value
+    }
+    
+    axios.post(baseURL+"/students/addStudent", student )
+    .then(res => console.log(res))
+    .catch(err => console.log("add student error "+err))
+    
+  }
 
     render()
     {
@@ -19,19 +35,19 @@ class Register extends React.Component{
                     <h5 class="card-title text-center">Register</h5>
                     <form class="form-signin">
                       <div class="form-label-group">
-                        <input type="text" id="inputUserame" class="form-control" placeholder="Username" required autofocus />
-                        <label for="inputUserame">Username</label>
+                        <input type="text" ref="fullName"  id="inputUserame" class="form-control" placeholder="Full Name" required autofocus />
+                        <label for="inputUserame">Full Name</label>
                       </div>
         
                       <div class="form-label-group">
-                        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required />
+                        <input type="email" ref="email" id="inputEmail" class="form-control" placeholder="Email address" required />
                         <label for="inputEmail">Email address</label>
                       </div>
                       
                       <hr/>
         
                       <div class="form-label-group">
-                        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required />
+                        <input type="password" ref="password" id="inputPassword" class="form-control" placeholder="Password" required />
                         <label for="inputPassword">Password</label>
                       </div>
                       
@@ -44,7 +60,9 @@ class Register extends React.Component{
                       </div>
                         
         
-                      <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Register</button>
+                      <button class="btn btn-lg btn-primary btn-block text-uppercase" 
+                        type="button" onClick={this.createStudent}>Register
+                      </button>
                       <br/>
                       <div className="text-center">
                         <Link to="/login" className="mx-auto text-primary ">Or Login</Link>

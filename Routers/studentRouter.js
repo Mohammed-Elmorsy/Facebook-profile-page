@@ -16,11 +16,13 @@ studentRouter.get("/getStudent",(request,response)=>{
                  })
 });
 //add post
- studentRouter.post("/addPost",(request,response)=>{
-    let postObject = new studentSchema({
-        postStatus : request.body.postStatus
+ studentRouter.post("/addStudent",(request,response)=>{
+    let studentObject = new studentSchema({
+        fullName : request.body.fullName,
+        email : request.body.email,
+        password : request.body.password
     });
-    postObject.save()
+    studentObject.save()
     .then((data)=>{response.send(data);})
     .catch((error)=>{console.log("add student error"+error)});
 });
