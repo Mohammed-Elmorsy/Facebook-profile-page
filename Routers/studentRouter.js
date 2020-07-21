@@ -19,6 +19,7 @@ studentRouter.get("/getStudent",(request,response)=>{
  studentRouter.post("/addStudent",(request,response)=>{
     let studentObject = new studentSchema({
         fullName : request.body.fullName,
+        userName : request.body.userName,
         email : request.body.email,
         password : request.body.password
     });

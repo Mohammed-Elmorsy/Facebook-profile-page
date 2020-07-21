@@ -3,7 +3,9 @@ let path=require("path");
 let mongoose=require("mongoose");
 let postRouter=require("./Routers/postRouter")
 let studentRouter=require("./Routers/studentRouter")
+let authRouter=require("./Routers/authRouter")
 let cors = require("cors");
+let express_session=require("express-session");
 
 
 //1- open server
@@ -34,14 +36,10 @@ server.use(express.static(path.join(__dirname,"public")));
 server.use(express.static(path.join(__dirname,"node_modules")));
 server.use(express.urlencoded({extended:false})); // parseing http body 
 server.use(express.json());
-
+server.use(express_session({secret:"mohammed", resave: false,saveUninitialized: true}));
 
 ///Routing 
-server.get(["/", "/home"],(request,response)=>{
-     response.send("home page");
-});
-
-
+server.use(authRouter);
 server.use("/posts",postRouter);
 server.use("/students",studentRouter);
 

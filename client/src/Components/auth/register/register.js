@@ -11,12 +11,25 @@ class Register extends React.Component{
 
     let student = {
       fullName:this.refs.fullName.value,
+      userName:this.refs.userName.value,
       email:this.refs.email.value,
       password:this.refs.password.value
     }
     
-    axios.post(baseURL+"/students/addStudent", student )
-    .then(res => console.log(res))
+    axios.post(baseURL+"/register", student )
+    .then(res => {
+      console.log(res)
+      if(res.data.message === 'username already exists'){
+        alert('username already exists');
+      }
+      else if(res.data.message === 'email already exists'){
+        alert('email already exists');
+      }
+      else{
+        alert('you registered successfully!');
+      }
+      
+    })
     .catch(err => console.log("add student error "+err))
     
   }
@@ -35,8 +48,12 @@ class Register extends React.Component{
                     <h5 class="card-title text-center">Register</h5>
                     <form class="form-signin">
                       <div class="form-label-group">
-                        <input type="text" ref="fullName"  id="inputUserame" class="form-control" placeholder="Full Name" required autofocus />
-                        <label for="inputUserame">Full Name</label>
+                        <input type="text" ref="fullName"  id="inputFullname" class="form-control" placeholder="Full Name" required autofocus />
+                        <label for="inputFullname">Full Name</label>
+                      </div>
+                      <div class="form-label-group">
+                        <input type="text" ref="userName"  id="inputUserame" class="form-control" placeholder="Full Name" required autofocus />
+                        <label for="inputUserame">User Name</label>
                       </div>
         
                       <div class="form-label-group">
@@ -65,10 +82,8 @@ class Register extends React.Component{
                       </button>
                       <br/>
                       <div className="text-center">
-                        <Link to="/login" className="mx-auto text-primary ">Or Login</Link>
+                        <Link to="/login" className="text-primary ">Or Login</Link>
                       </div>
-                      <hr class="my-4"/>
-                      
                     </form>
                   </div>
                 </div>

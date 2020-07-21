@@ -3,6 +3,7 @@ let mongoose=require("mongoose");
 //schema 
 let studentSchema=new mongoose.Schema({
         fullName: String,
+        userName: String,
         email:String ,
         password:String,
         address: {

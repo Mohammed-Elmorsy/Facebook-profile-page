@@ -5,10 +5,6 @@ const Intro = () => {
     return(
         <div id="intro">
             <h5>Intro</h5>
-{/*             {isLoggedIn
-            ? <LogoutButton onClick={this.handleLogoutClick} />
-            : <LoginButton onClick={this.handleLoginClick} />
-            } */}
             <span id="bio">this is my bio</span><br></br>
             <button id="editBio">Edit Bio</button>
             <hr></hr>

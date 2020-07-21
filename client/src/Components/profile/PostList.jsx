@@ -3,14 +3,14 @@ import React from 'react'
 class PostList extends React.Component {
     state = {
         postStatus: "",
-        postId: 0 ,
-        editedPostStatus : ""        
+        postId: 0,
+        editedPostStatus: ""
     }
 
 
     handleChange = (e) => {
         this.setState({
-            editedPostStatus : e.target.value
+            editedPostStatus: e.target.value
         })
     }
 
@@ -25,7 +25,7 @@ class PostList extends React.Component {
     }
 
     editPost = () => {
-        const { postToEdit , editedPostStatus } = this.state ;
+        const { postToEdit, editedPostStatus } = this.state;
         postToEdit.postStatus = editedPostStatus;
         this.props.onEdit(postToEdit)
 
@@ -33,8 +33,23 @@ class PostList extends React.Component {
 
     render() {
         console.log(this.state.postStatus);
+/* 
+        //filteration posts option
+        const headachePost = ['مصر','تركيا','كورونا','سد', 'مرأة','رجل'];
         return (
-            <React.Fragment>
+            <div>
+                {this.props.posts.filter(post => !headachePost.includes(post.postStatus)).map((post) => {
+                    return (
+                        <div>
+                            {post.postStatus}
+                        </div>
+                    )
+                })}
+            </div>
+        ) */
+
+        return (
+            <React.Fragment> 
                 <div id="postList">
                     {this.props.posts.map((post) => {
                         return (

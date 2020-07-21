@@ -42,5 +42,4 @@ postRouter.post("/deletePost",(request,response)=>{
     .catch((error)=>{console.log("update post error"+error)});  
 });
 
-
 module.exports=postRouter;

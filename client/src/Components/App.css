@@ -15,7 +15,14 @@ a{
     color: white;
 }
 a:hover{
-    color: lightblue;
+    color: rgb(137, 220, 248);
+}
+.activeLink{
+    color: rgb(137, 220, 248);
+    font-weight: bold;
+}
+.fa-bars{
+    color: aliceblue;
 }
 #cover{
     height: 300px;
