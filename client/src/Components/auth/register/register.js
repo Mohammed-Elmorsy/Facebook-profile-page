@@ -72,12 +72,10 @@ class Register extends React.Component{
                         <input type="password" id="inputConfirmPassword" class="form-control" placeholder="Password" required />
                         <label for="inputConfirmPassword">Confirm password</label>
                       </div>
-                      <div class="form-label-group">
+                      
                         <CoursesDropDown/>
-                      </div>
-                        
-        
-                      <button class="btn btn-lg btn-primary btn-block text-uppercase" 
+
+                      <button class="btn btn-lg btn-primary btn-block text-uppercase mt-4" 
                         type="button" onClick={this.createStudent}>Register
                       </button>
                       <br/>
