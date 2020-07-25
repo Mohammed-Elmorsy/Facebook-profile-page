@@ -51,10 +51,10 @@ authRouter.post("/register", async (request, response) => {
 
 
 });
-/* 
+
 authRouter.get("/logout",(request,response)=>{
     request.session.destroy();
- */
-/* }); *///login get
+
+});
 
 module.exports = authRouter;

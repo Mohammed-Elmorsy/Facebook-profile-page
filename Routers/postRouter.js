@@ -17,7 +17,7 @@ postRouter.get("/postList",(request,response)=>{
 });
 
 //MW 
-postRouter.use((request,response,next)=>{
+/* postRouter.use((request,response,next)=>{
     if(request.session.role === "student")
     {
         next();
@@ -26,7 +26,7 @@ postRouter.use((request,response,next)=>{
     {
         response.sendStatus(401);
     }
-});
+}); */
 //add post
  postRouter.post("/addPost",(request,response)=>{
     let postObject = new postSchema({
